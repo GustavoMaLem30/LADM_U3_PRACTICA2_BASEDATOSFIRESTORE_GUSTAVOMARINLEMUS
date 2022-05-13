@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.DashboardFragment"
+    android:padding="20dp">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edificioText"
+        android:text="Edificio: "
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/ediEdicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/edificioText"
+        android:inputType="text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pisoText"
+        android:text="Piso: "
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/edificioText"/>
+
+    <EditText
+        android:id="@+id/ediPiso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edificioText"
+        android:layout_toRightOf="@+id/edificioText"
+        android:inputType="text" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/btnAgregar"
+        android:text="Agregar"
+        android:textSize="18dp"
+        android:layout_below="@id/pisoText"
+        android:layout_marginTop="5dp"/>
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Actualizar"
+        android:id="@+id/btnActualiza"
+        android:textSize="16dp"
+        android:layout_below="@id/pisoText"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="60dp"
+        android:layout_toRightOf="@id/btnAgregar"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/btneliminar"
+        android:text="Eliminar"
+        android:textSize="17dp"
+        android:layout_below="@id/btnAgregar"
+        android:layout_marginTop="5dp"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btnActualiza"
+        android:id="@+id/btnBuscar"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="5dp"
+        android:textSize="17dp"
+        android:text="BUSCAR"
+        android:layout_toRightOf="@id/btneliminar"/>
+    android:text="Eliminar"
+    android:textSize="18dp" />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/btndesdiv"
+        android:text="División"
+        android:textSize="16dp"
+        android:layout_below="@id/btneliminar"
+        android:layout_marginTop="5dp"/>
+
+    <ListView
+        android:id="@+id/listaArea"
+        android:layout_width="180dp"
+        android:layout_height="125dp"
+        android:layout_below="@id/divii"
+        android:layout_marginTop="10dp" />
+
+    <ListView
+        android:id="@+id/listaDepate"
+        android:layout_width="180dp"
+        android:layout_height="125dp"
+        android:layout_below="@id/divii"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/listaArea" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/idArea"
+        android:text="IdArea: "
+        android:layout_below="@id/listaArea"
+        android:textSize="14dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/desc"
+        android:text="Descripción: "
+        android:layout_below="@id/idArea"
+        android:textSize="14dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/divi"
+        android:text="División: "
+        android:layout_below="@+id/desc"
+        android:textSize="14dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/empleados"
+        android:text="Cantidad Empleados: "
+        android:layout_below="@+id/divi"
+        android:textSize="14dp"/>
+
+    <EditText
+        android:id="@+id/descEs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnBuscar"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/btndesdiv"
+        android:hint="Descripción: "
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/divii"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/descEs"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/btndesdiv"
+        android:hint="División: "
+        android:inputType="text" />
+
+</RelativeLayout>

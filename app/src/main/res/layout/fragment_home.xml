@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/imagen2"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/areacolor" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/descripcionText"
+        android:text="Descripción: "
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/imagen2"/>
+
+    <EditText
+        android:id="@+id/editDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imagen2"
+        android:layout_toRightOf="@+id/cantidadText"
+        android:inputType="text" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/divisionText"
+        android:text="División: "
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/descripcionText"/>
+
+    <EditText
+        android:id="@+id/editDivi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descripcionText"
+        android:layout_toRightOf="@+id/cantidadText"
+        android:inputType="text" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cantidadText"
+        android:text="No.Empleados: "
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/divisionText"/>
+
+    <EditText
+        android:id="@+id/editEmpleado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divisionText"
+        android:layout_toRightOf="@+id/cantidadText"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/cantidadText"
+        android:layout_marginTop="20dp"
+        android:text="Buscar"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/btnAgregar"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/cantidadText"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/btnBuscar"
+        android:text="Agregar"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/btnActualiza"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btnBuscar"
+        android:layout_marginTop="20dp"
+        android:text="Actualizar"
+        android:textSize="17dp" />
+
+    <Button
+        android:id="@+id/btnBorrar"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btnAgregar"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/btnActualiza"
+        android:text="Eliminar"
+        android:textSize="18dp" />
+
+    <ListView
+        android:id="@+id/listaDeDatos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnActualiza"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp" />
+
+
+</RelativeLayout>

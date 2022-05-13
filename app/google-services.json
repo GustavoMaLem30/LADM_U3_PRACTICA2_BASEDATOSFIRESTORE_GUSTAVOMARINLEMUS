@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "839341854752",
+    "project_id": "ladm-u3-practica2-gml",
+    "storage_bucket": "ladm-u3-practica2-gml.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839341854752:android:49a973090a48d2a514ac45",
+        "android_client_info": {
+          "package_name": "mx.tecnm.tepic.ladm_u3_practica2_basedatosfirestore_gustavo_marin_lemus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839341854752-p2enmq62vpmk5jm31nfu4brnb41654dg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh0WlwhFROS4e3uOjmypqpGcXAZwaeFeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839341854752-p2enmq62vpmk5jm31nfu4brnb41654dg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
