@@ -150,14 +150,17 @@ class HomeFragment : Fragment() {
                     .show()
                 return@addSnapshotListener
             }
+            listaidGlobal.clear()
             val llenar = ArrayList<String>()
             for (documento in query!!) {
                 if (i == 0) {
                     var cadena = "${documento.getString("division")}"
                     llenar.add(cadena)
+                    listaidGlobal.add(documento.id)
                 } else {
                     var cadena = "${documento.getString("descripcion")}"
                     llenar.add(cadena)
+                    listaidGlobal.add(documento.id)
                 }
             }
             binding.listaDeDatos.adapter =
