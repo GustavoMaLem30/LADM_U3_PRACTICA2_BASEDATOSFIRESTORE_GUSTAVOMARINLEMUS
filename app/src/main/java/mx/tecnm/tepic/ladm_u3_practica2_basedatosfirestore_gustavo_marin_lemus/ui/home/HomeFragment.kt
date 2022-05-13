@@ -14,11 +14,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import mx.tecnm.tepic.ladm_u3_practica2_basedatosfirestore_gustavo_marin_lemus.databinding.FragmentHomeBinding
+import java.lang.NullPointerException
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
+    private var listaidGlobal = ArrayList<String>()
+    private var idRequerido = ""
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -36,29 +38,63 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
         FirebaseFirestore.getInstance().collection("area")
             .addSnapshotListener { query, error ->
-                if (error!=null){
+                if (error != null) {
                     //ERROR
                     AlertDialog.Builder(requireContext())
                         .setMessage(error.message)
                         .show()
                     return@addSnapshotListener
                 }
+                listaidGlobal.clear()
                 val llenar = ArrayList<String>()
-                for (documento in query!!){
+                for (documento in query!!) {
                     var cadena = "${documento.getString("descripcion")}"
+                    listaidGlobal.add(documento.id)
                     llenar.add(cadena)
                 }
 
-                binding.listaDeDatos.adapter = ArrayAdapter<String>(requireContext(), R.layout.simple_list_item_1, llenar)
+                try {
+                    binding.listaDeDatos.adapter =
+                        ArrayAdapter<String>(requireContext(), R.layout.simple_list_item_1, llenar)
+                    binding.listaDeDatos.setOnItemClickListener { adapterView, view, i, l ->
+                        idRequerido = listaidGlobal.get(i).toString()
+                        baseRemota.collection("area").document(idRequerido).get()
+                            .addOnSuccessListener {
+                                binding.editDesc.setText(it.getString("descripcion"))
+                                binding.editDivi.setText(it.getString("division"))
+                                binding.editEmpleado.setText(
+                                    it.getLong("cantidad_empleados").toString()
+                                )
+                            }
+                    }
+                }catch (err:NullPointerException){
+
+                }
             }
         binding.btnAgregar.setOnClickListener {
             agregarArea()
         }
-        binding.listaDeDatos.setOnItemClickListener { adapterView, view, i, l ->
-
-        }
         binding.btnBuscar.setOnClickListener{
             buscarArea()
+        }
+        binding.btnActualiza.setOnClickListener {
+            baseRemota.collection("area").document(idRequerido).
+            update("descripcion",binding.editDesc.text.toString(),
+            "division",binding.editDivi.text.toString(),
+            "cantidad_empleados",binding.editEmpleado.text.toString().toInt())
+            binding.editDesc.setText("")
+            binding.editDivi.setText("")
+            binding.editEmpleado.setText("")
+            Toast.makeText(requireContext(), "SE REALIZO LA ACTUALIZACIÓN CORRECTAMENTE", Toast.LENGTH_LONG).show()
+        }
+        binding.btnBorrar.setOnClickListener {
+            baseRemota.collection("area").document(idRequerido).delete()
+                .addOnSuccessListener {
+                    binding.editDesc.setText("")
+                    binding.editDivi.setText("")
+                    binding.editEmpleado.setText("")
+                    Toast.makeText(requireContext(), "SE REALIZO LA ELIMINACIÓN CORRECTAMENTE", Toast.LENGTH_LONG).show()
+                }
         }
         return root
     }
@@ -70,7 +106,7 @@ class HomeFragment : Fragment() {
             val insertarDatos = hashMapOf(
                 "descripcion" to binding.editDesc.text.toString(),
                 "division" to binding.editDivi.text.toString(),
-                "cantidad_empleados" to binding.editEmpleado.text.toString())
+                "cantidad_empleados" to binding.editEmpleado.text.toString().toInt())
 
             baseRemota.collection("area").add(insertarDatos)
                 .addOnSuccessListener {
